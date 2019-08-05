@@ -1,0 +1,2 @@
+# kuaishou
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e923fb78ef4845ba85cca8931c102c14)](https://app.codacy.com/app/1107474494/kuaishou?utm_source=github.com&utm_medium=referral&utm_content=hub-sen/kuaishou&utm_campaign=Badge_Grade_Settings)
