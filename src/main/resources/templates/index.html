@@ -94,7 +94,12 @@
     function drew(index) {
         let temp = _data.feeds;
         _index += index;
+
+        console.log("_dataLength: "+_dataLength)
+        console.log("_index: "+_index)
+
         if (_index === _dataLength || _index === -_dataLength) {
+            console.log("reload")
             getInfo();
         }
         index = Math.abs(_index);

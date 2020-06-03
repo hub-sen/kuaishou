@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>每日一碗毒鸡汤</title>
+
+
+    <style>
+
+        .box{
+            margin: 0 auto;
+        }
+        #du {
+            vertical-align: middle;
+        }
+
+        .btn-primary.btn-filled {
+            background: #1aaf5d;
+            color: #fff;
+        }
+
+        .btn {
+            min-width: 50px;
+            transition: all .3s ease;
+            vertical-align: middle;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 28px 13px 28px;
+            border: 2px solid #1aaf5d;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-size: 11px;
+            font-family: "Raleway", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body style="text-align: center">
+
+<div class="box">
+    <span style="font-size: 2rem;" id="du" th:text="${_du}"></span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <span class="btn btn-primary btn-filled btn-xs"><a href="/du">再来一碗</a></span>
+</div>
+
+</body>
+
+</html>
