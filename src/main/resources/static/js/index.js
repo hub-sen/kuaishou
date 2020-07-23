@@ -1,5 +1,5 @@
 ! function (e, t) {
-    "object" == typeof exports && "object" == typeof module ? module.exports = t(require("static/js/vue")) : "function" == typeof define && define.amd ? define("ELEMENT", ["static/js/vue"], t) : "object" == typeof exports ? exports.ELEMENT = t(require("static/js/vue")) : e.ELEMENT = t(e.Vue)
+    "object" == typeof exports && "object" == typeof module ? module.exports = t(require("js/vue")) : "function" == typeof define && define.amd ? define("ELEMENT", ["js/vue"], t) : "object" == typeof exports ? exports.ELEMENT = t(require("js/vue")) : e.ELEMENT = t(e.Vue)
 }(this, function (e) {
     return function (e) {
         function t(n) {
