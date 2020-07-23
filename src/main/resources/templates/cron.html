@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cron</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            margin: 40px;
+            padding: 30px;
+            border: 1px solid #ccc;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .wrapper .tips {
+            color: #000;
+            font-size: 18px;
+            background: #fff;
+            font-weight: 700;
+            position: absolute;
+            top: -12px;
+            left: 20px;
+        }
+
+        .wrapper .block input {
+            width: 100%;
+            display: block;
+            height: 40px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .wrapper .btn {
+            width: 80px;
+            height: 40px;
+            border: none;
+            background: #2879FF;
+            border-radius: 5px;
+            outline: none;
+            color: #fff;
+        }
+
+        .wrapper .btn:active {
+            opacity: 0.8;
+        }
+
+        .wrapper .list {
+            margin-top: 10px;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .wrapper .list li {
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <span class="tips"> 表 达 式 </span>
+    <div class="block">
+        cron 表达式:
+        <input type="text" class="cron"/>
+    </div>
+    <div class="block">
+        次数:
+        <input type="text" class="numTimes"/>
+    </div>
+    <div>
+        <button class="btn" onclick="getCron()">运行</button>
+    </div>
+
+    <ul class="list"></ul>
+</div>
+</body>
+<script src="webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+<script>
+
+    function getCron() {
+        let cron = $(".cron").val();
+        let numTimes = $(".numTimes").val();
+
+        $.ajax({
+            url: "cron" + "?cron=" + cron + "&numTimes=" + numTimes,
+            async: false,
+            type: "get",
+            dataType: "text",
+            success: function (data) {
+                let _cron = JSON.parse(data);
+                let str = ''
+                _cron.forEach((item) => {
+                    str += `<li>${item}</li>`
+                })
+                $('.list').html(str);
+            },
+            error: function () {
+                alert("请求失败");
+            }
+        });
+    }
+
+</script>
+
+</html>

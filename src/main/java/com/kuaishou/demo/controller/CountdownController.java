@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class CountdownController {
     @GetMapping("countdown")
     @ResponseBody
-    public ModelAndView countdown() throws Exception {
+    public ModelAndView countdown() {
         return new ModelAndView("countdown");
     }
 
