@@ -8,6 +8,7 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 
@@ -17,6 +18,13 @@ import java.io.IOException;
  */
 @Controller
 public class KuaishouController {
+
+
+	@GetMapping("kuaishou")
+	@ResponseBody
+	public ModelAndView toCron() {
+		return new ModelAndView("kuaishou");
+	}
 
 	@GetMapping("info")
 	@ResponseBody

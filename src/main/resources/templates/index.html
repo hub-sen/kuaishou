@@ -5,113 +5,20 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tool-box</title>
+
+
     <style>
-        #box video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-        }
-
-        #caption {
-            position: relative;
-            color: white;
-            size: A3;
-        }
-
-        #user_name {
-            position: relative;
-            color: white;
-            size: A3;
-        }
-
-        #pre {
-            position: relative;
-            float: left;
-            background: none;
-            width: 20%;
-            height: 1060px;
-            border: none;
-            outline: none;
-        }
-
-        #next {
-            position: relative;
-            float: right;
-            background: none;
-            width: 20%;
-            height: 1060px;
-            border: none;
-            outline: none;
+        a {
+            text-decoration: none;
         }
     </style>
-    <script src="webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+
 </head>
 <body>
-<div id="box">
-    <video id = "myVideo" src="" controls></video>
-    <span id="user_name"></span><br>
-    <span id="caption"></span>
-    <button id="pre" onclick="drew(-1)"></button>
-    <button id="next" onclick="drew(1)"></button>
-</div>
-
-
-<script>
-
-
-    let _index;
-
-    let _data;
-
-    let _dataLength;
-
-    $(function () {
-        getInfo();
-    });
-
-    function getInfo() {
-        $.ajax({
-            url: "info",
-            async: false,
-            type: "get",
-            dataType: "text",
-            success: function (data) {
-                _index = -1;
-                _data = JSON.parse(data);
-                _dataLength = _data.feeds.length;
-                drew(1);
-            },
-            error: function () {
-                alert("请求失败");
-            }
-        });
-    }
-
-    function drew(index) {
-        let temp = _data.feeds;
-        _index += index;
-
-        console.log("_dataLength: "+_dataLength)
-        console.log("_index: "+_index)
-
-        if (_index === _dataLength || _index === -_dataLength) {
-            console.log("reload")
-            getInfo();
-        }
-        index = Math.abs(_index);
-        let url = temp[index].main_mv_urls;
-        if (url !== undefined) {
-            let _url = url[0].url.split("?")[0];
-            $("#box video").attr("src", _url);
-            $("#caption").html(temp[index].caption);
-            $("#user_name").html(temp[index].user_name);
-            document.getElementById("myVideo").play();
-        }
-    }
-</script>
+<li><a href="/countdown">倒计时</a></li>
+<li><a href="/toCron">Cron 表达式</a></li>
+<li><a href="/du">毒</a></li>
+<li><a href="/kuaishou">快手 - 记录美好生活</a></li>
 </body>
 </html>
